@@ -1,20 +1,19 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-app.use('/home', express.static('./pages/home.html'))
-app.use('/pagedois', express.static('./pages/paginadois.html'))
+const homeRoutes = require('./routes/rotasHome'); 
+const admRoutes = require('./routes/rotasAdm'); 
 
+app.use('/home', express.static('home.html'));
+app.use('/public', express.static('public')); 
 
-app.get('/', function(req, res){ 
-    res.redirect('/home');
-});
+app.use('/', homeRoutes);
+app.use('/adm', admRoutes);
 
-app.get('/pagedois', function(req, res) {
-    res.sendFile(__dirname + '/pagedois');
-});
-
-app.listen(3000, function () { 
+app.listen(3000, function() {
     console.log("http://localhost:3000");
-    console.log('Aplicação escutando na porta 3000!'); 
-}); 
+    console.log('Aplicação escutando na porta 3000!');
+});
+
+
 

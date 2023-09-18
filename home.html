@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <html lang="en"></html>
+    <meta charset="utf-8">
+    <link href="/public/css/css.css" rel="stylesheet" type="text/css">
+    <title>Home</title>
+</head>
+    <header>
+            <h1>Titulo</h1>
+            <nav>
+                <a href="home.html">HOME</a>
+                <a href="categorias/login.html">LOGIN</a>
+                <form action="categorias/paginaderesultado.html" method="get">
+                    <input type="text" name="q" placeholder="Pesquisar..." id="campoDePesquisa">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </nav>
+    </header>
+    <main>
+        <script>
+            function testeRedireciona() {
+                window.location.href = '/adm';
+            };
+        </script>
+        <section>
+            <article>
+                    <h3>Artigo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laborum quidem in cumque exercitationem, sunt sint! Veritatis nesciunt sunt quae voluptate delectus corrupti explicabo enim officia, totam natus vero eaque!</p>
+                    <a onclick="testeRedireciona()" >Veja mais</a>
+
+            </article>
+            <article>
+                    <h3>Artigo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque similique quas alias sit inventore voluptatem libero at eum tempora dolorem distinctio repellendus ipsa dolor nesciunt obcaecati, possimus aut dolores.</p>
+                    <a href="artigos/artigo1.html">Veja mais</a>
+            </article>
+            <article>
+                    <h3>Artigo 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores animi, odio magnam perspiciatis porro tempora iure reprehenderit ipsam illo aliquid excepturi optio saepe eligendi officia. Quaerat consequuntur pariatur odit?</p>
+                    <a href="artigos/artigo1.html">Veja mais</a>
+            </article>
+        </section>
+    </main>
+   <footer>
+        <p>______________________________________________________________________________________________________________________________________________________</p>
+        <a href="">Brasil</a>
+        <a href="">Política de Privacidade</a>
+        <a href="">Termos de Uso</a>
+    </footer>
+</html>
