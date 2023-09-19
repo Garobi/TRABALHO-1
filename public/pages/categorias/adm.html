@@ -12,7 +12,7 @@
             <nav>
                 <a href="/home">HOME</a>
                 <a href="/login">LOGIN</a>
-                <form action="paginaderesultado.html"" method="get">
+                <form action="/resultados" method="get">
                     <input type="text" name="q" placeholder="Pesquisar..." id="campoDePesquisa">
                     <button type="submit">Pesquisar</button>
                 </form>
@@ -36,13 +36,13 @@
     <script>
         var botao = document.getElementById("CriarUsuario");
         botao.addEventListener("click", function(){
-            window.location.href = "../categorias/novocadastro.html";
+            window.location.href = "/cadastro";
         });
     </script>
     <script>
         var botao = document.getElementById("CriarArtigo");
         botao.addEventListener("click", function(){
-            window.location.href = "../categorias/novoartigo.html";
+            window.location.href = "/novoartigo";
         });
     </script>
 </body>

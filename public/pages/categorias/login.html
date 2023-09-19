@@ -10,8 +10,8 @@
         <h1>Titulo</h1>
         <nav>
             <a href="/home">HOME</a>
-            <a href="/adm">LOGIN</a>
-            <form action="paginaderesultado.html"" method="get">
+            <a href="/Login">LOGIN</a>
+            <form action="/resultados" method="get">
                 <input type="text" name="q" placeholder="Pesquisar..." id="campoDePesquisa">
                 <button type="submit">Pesquisar</button>
             </form>
@@ -41,7 +41,7 @@
     <script>
         var botao = document.getElementById("Confirmar");
         botao.addEventListener("click", function(){
-            window.location.href = "../categorias/adm.html";
+            window.location.href = "/adm";
         });
     </script>
 </body>
