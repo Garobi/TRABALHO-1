@@ -12,9 +12,12 @@ const artigoRoutes = require('./routes/rotasArtigos');
 app.use('/home', express.static('home.html'));
 app.use('/public', express.static('public')); 
 
+app.use(express.static('middwares'));
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/home.html');
 });
+
 
 app.use('/', homeRoutes);
 app.use('/adm', admRoutes);
