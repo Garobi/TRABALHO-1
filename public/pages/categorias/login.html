@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="/public/css/css.css" rel="stylesheet" type="text/css">
+    <script src="/public/middwares/login.js"></script>
+
     <title>Login</title>
 </head>
 <body>
@@ -22,11 +24,11 @@
             <article>
                 <h1>Login</h1>
                 <form action="">
-                    <input type="email" name="Email" placeholder="Email">
+                    <input type="email" id="email" name="Email" placeholder="Email">
                     <br><br>
-                    <input type="password" name="Senha" placeholder="Senha">
+                    <input type="password" id="senha" name="Senha" placeholder="Senha">
                     <br><br>
-                    <button id="Confirmar">Confirmar</button>
+                    <button type="button" id="Confirmar">Confirmar</button>
                 </form>
             </article>
         </section>
@@ -37,12 +39,5 @@
         <a href="">Política de Privacidade</a>
         <a href="">Termos de Uso</a>
     </footer>
-
-    <script>
-        var botao = document.getElementById("Confirmar");
-        botao.addEventListener("click", function(){
-            window.location.href = "/adm";
-        });
-    </script>
 </body>
 </html>
