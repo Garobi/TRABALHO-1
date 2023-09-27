@@ -32,12 +32,40 @@
                     <input type="date" name="Data nascimento" placeholder="Data nascimento">
                     <br>
                     <br>
-                    <input type="text" name="Endereço" placeholder="Endereço">
+                    <input type="password" name="Senha" placeholder="Senha">
                     <br>
                     <br>
-                    <button>
+                    <button id="confirmar" type="button">
                         Confirmar
                     </button>
+                    <script>
+                        var users;
+                        function confirmaCadastro() {
+                            var nome = document.getElementsByName('Nome')[0].value;
+                                email = document.getElementsByName('Email')[0].value;
+                                senha = document.getElementsByName('Senha')[0].value;
+
+                                
+                            const user = {
+                                nome : nome,
+                                email : email,
+                                senha : senha,
+                            }
+                            const userJSON = JSON.stringify(user);
+                            return userJSON;
+                        }
+                        fetch("public/data/articles.json")
+                            .then((response) => response.json())
+                            .then((data) => {
+                                users = data;
+                    
+                                var botaoConfirmar = document.getElementById("confirmar");
+                                botaoConfirmar.addEventListener("click", confirmaCadastro);
+                            })
+                            .catch((error) => {
+                                console.error("Ocorreu um erro ao carregar o arquivo .json:", error);
+                            });
+            </script>
                 </form>
             </article>
         </section>
