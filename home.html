@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <html lang="en"></html>
+    <html lang="en">
+
+    </html>
     <meta charset="utf-8">
     <link href="/public/css/css.css" rel="stylesheet" type="text/css">
     <title>Home</title>
 </head>
-    <header>
-            <h1>Titulo</h1>
-            <nav>
-                <a href="/">HOME</a>
-                <a href="/Login">LOGIN</a>
-                <form action="/resultados" method="get">
-                    <input type="text" name="q" placeholder="Pesquisar..." id="campoDePesquisa">
-                    <button type="submit">Pesquisar</button>
-                </form>
-            </nav>
-    </header>
-    <main>
-        <script>
-            function testeRedireciona() {
-                window.location.href = '/adm';
-            };
-        </script>
-        <section>
-            <article>
-                    <h3>Artigo 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laborum quidem in cumque exercitationem, sunt sint! Veritatis nesciunt sunt quae voluptate delectus corrupti explicabo enim officia, totam natus vero eaque!</p>
-                    <a  href="/artigo/artigo1">Veja mais</a>
+<header>
+    <h1>Titulo</h1>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/Login">LOGIN</a>
+        <form action="/resultados" method="get">
+            <input type="text" name="q" placeholder="Pesquisar..." id="campoDePesquisa">
+            <button type="submit">Pesquisar</button>
+        </form>
+    </nav>
+</header>
+<main>
+    <script>
+        function testeRedireciona() {
+            window.location.href = '/adm';
+        };
+    </script>
+    <section>
+        <article>
+            <h3>Artigo 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium laborum quidem in cumque
+                exercitationem, sunt sint! Veritatis nesciunt sunt quae voluptate delectus corrupti explicabo enim
+                officia, totam natus vero eaque!</p>
+            <a href="/artigo/artigo1">Veja mais</a>
 
-            </article>
-            <article>
-                    <h3>Artigo 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque similique quas alias sit inventore voluptatem libero at eum tempora dolorem distinctio repellendus ipsa dolor nesciunt obcaecati, possimus aut dolores.</p>
-                    <a href="/artigo/artigo1">Veja mais</a>
-            </article>
-            <article>
-                    <h3>Artigo 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores animi, odio magnam perspiciatis porro tempora iure reprehenderit ipsam illo aliquid excepturi optio saepe eligendi officia. Quaerat consequuntur pariatur odit?</p>
-                    <a href="/artigo/artigo1">Veja mais</a>
-            </article>
-        </section>
-    </main>
-   <footer>
-        <p>______________________________________________________________________________________________________________________________________________________</p>
-        <a href="">Brasil</a>
-        <a href="">Política de Privacidade</a>
-        <a href="">Termos de Uso</a>
-    </footer>
+        </article>
+        <article>
+            <h3>Artigo 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eaque similique quas alias sit
+                inventore voluptatem libero at eum tempora dolorem distinctio repellendus ipsa dolor nesciunt obcaecati,
+                possimus aut dolores.</p>
+            <a href="/artigo/artigo1">Veja mais</a>
+        </article>
+        <article id="1">
+            <h3>Artigo 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores animi, odio magnam perspiciatis
+                porro tempora iure reprehenderit ipsam illo aliquid excepturi optio saepe eligendi officia. Quaerat
+                consequuntur pariatur odit?</p>
+            <a href="/artigo/artigo1">Veja mais</a>
+            <button id="like" type="button">like</button>
+            <script>
+                var articles;
+                var articleId = "1"; //Aqui tem q passar o id do artigo certo, quando criar o artigo passa o id dele 
+            
+                function aumentaLike() {
+
+                    var articleToUpdate = articles.find((article) => article.kb_id === articleId);
+            
+                    if (articleToUpdate) {
+
+                        articleToUpdate.kb_liked_count = parseInt(articleToUpdate.kb_liked_count) + 1;
+            
+                        var botaoLike = document.getElementById("like");
+                        botaoLike.innerText = "Likes: " + articleToUpdate.kb_liked_count;
+                    } else {
+                        console.error("Artigo não encontrado com o ID: " + articleId);
+                    }
+                }
+            
+                fetch("public/data/articles.json")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        articles = data;
+            
+                        var botaoLike = document.getElementById("like");
+                        botaoLike.addEventListener("click", aumentaLike);
+            
+                        var articleToUpdate = articles.find((article) => article.kb_id === articleId);
+                        if (articleToUpdate) {
+                            botaoLike.innerText = "Likes: " + articleToUpdate.kb_liked_count;
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Ocorreu um erro ao carregar o arquivo .json:", error);
+                    });
+            </script>
+            
+            
+        </article>
+    </section>
+</main>
+<footer>
+    <p>______________________________________________________________________________________________________________________________________________________
+    </p>
+    <a href="">Brasil</a>
+    <a href="">Política de Privacidade</a>
+    <a href="">Termos de Uso</a>
+</footer>
+
 </html>
